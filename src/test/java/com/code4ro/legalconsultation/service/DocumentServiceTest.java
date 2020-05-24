@@ -73,8 +73,7 @@ public class DocumentServiceTest {
         document.setDocumentNode(documentNode);
 
         when(documentConsolidatedService.getByDocumentMetadataId(any(UUID.class))).thenReturn(document);
-        when(commentService.count(documentNode.getId())).thenReturn(BigInteger.ONE);
-        when(documentConsolidatedMapper.map(any(), any())).thenReturn(new DocumentConsolidatedDto());
+        when(documentConsolidatedMapper.map(any())).thenReturn(new DocumentConsolidatedDto());
 
         documentService.fetchConsolidatedByMetadataId(uuid);
 

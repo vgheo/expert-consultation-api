@@ -72,10 +72,7 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public DocumentConsolidatedDto fetchConsolidatedByMetadataId(final UUID id) {
         final DocumentConsolidated document = documentConsolidatedService.getByDocumentMetadataId(id);
-        UUID documentNodeId = document.getDocumentNode().getId();
-        BigInteger noOfcComments = commentService.count(documentNodeId);
-
-        return documentConsolidatedMapper.map(document, noOfcComments);
+        return documentConsolidatedMapper.map(document);
     }
 
     @Transactional
